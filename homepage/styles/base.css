@@ -1,0 +1,9 @@
+#alert {
+  top: 12px;
+  position: fixed;
+  right: 12px;
+}
+
+.alert {
+  margin-bottom: 0px;
+}
