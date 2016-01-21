@@ -7,8 +7,7 @@
 
 
 <%block name="maintenance_message">
-  <div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <div class="alert alert-warning" role="alert">
     <div class="text-center">
       <strong>Ye Be warned!</strong> This site is currently under construction.
     </div>
@@ -30,14 +29,27 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/index">Colonial Heritage Foundation</a>
+            <a class="navbar-brand" href="/index">C<span class="faa faa-spin fa fa-cog animated"></span>lonial Heritage <span class="faa faa-horizontal fa fa-flag-o animated"></span>oundation</a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-              <li><a href="/index">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li
+              % if request.dmp_router_page =="index":
+                class="active"
+              % endif
+              ><a href="/homepage/index">Home</a></li>
+              <li
+              % if request.dmp_router_page =="about":
+                class="active"
+              % endif
+              ><a href="/homepage/about">About</a></li>
+              <li
+              % if request.dmp_router_page =="contact":
+                class="active"
+              % endif
+              ><a href="/homepage/contact">Contact</a></li>
+              <%block name="account_dropdown">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -45,6 +57,8 @@
                   <li><a href="#">Logout</a></li>
                 </ul>
               </li>
+              </%block>
+              ##block for dorpdown for account links
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
@@ -53,6 +67,7 @@
   </header>
 </%block>
     ## header block
+
 
 <%block name="alert_message">
   <div class="row">
@@ -90,7 +105,12 @@
 
 <%block name="footer">
   <footer class="footer">
-    Copyright &copy ${ datetime.now().year} - Jarrod Wilbur
+  ##not very good way to code, but allows year to be on every page throughout the homepage app
+   <%
+   import datetime
+   current_year = datetime.date.today().year
+   %>
+    Copyright &copy ${current_year} - Jarrod Wilbur
   </footer>
 </%block>
   ## block for footer of page; probably wont have change, just placed here for precaution
