@@ -18,6 +18,15 @@
 
 
 <%block name="header">
+<%
+  menu_tabs = [
+    [ "Home",    "index"  ],
+    [ "About",   "about"  ],
+    [ "Contact", "contact"],
+    [ "FAQ",     "faq"    ],
+    [ "Terms",   "terms"    ],
+  ]
+%>
   <header>
     <div class="container-fluid">
       <nav class="navbar navbar-inverse" role="navigation">
@@ -34,21 +43,10 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-              <li
-              % if request.dmp_router_page =="index":
-                class="active"
-              % endif
-              ><a href="/homepage/index">Home</a></li>
-              <li
-              % if request.dmp_router_page =="about":
-                class="active"
-              % endif
-              ><a href="/homepage/about">About</a></li>
-              <li
-              % if request.dmp_router_page =="contact":
-                class="active"
-              % endif
-              ><a href="/homepage/contact">Contact</a></li>
+            ##this for loop is for creating the tabs up on top; change "menu_tabs" above to add tabs with their corresponding link
+              % for tab, page in menu_tabs:
+                 <li class="${ 'active' if request.dmp_router_page == page else ''}"><a href="/homepage/${page}">${tab}</a></li>
+              % endfor
               <%block name="account_dropdown">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
@@ -74,7 +72,7 @@
     <div class="col-md-2" id="alert">
       <div class="alert alert-danger alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        <strong>Warning!</strong> This is a warning. You have been warned.
       </div>
     </div>
   </div>
@@ -83,23 +81,19 @@
 
 
 <%block name="above_columns">
-  this is area above the columns
 </%block>
   ## block for area above right, left and center columns
 
 
 <%block name="left_content">
-  left content
 </%block>
   ## block for left content
 
 <%block name="center_content">
-  <h1>center content</h1>
 </%block>
   ## block for center content
 
 <%block name="right_content">
-  right content
 </%block>
   ## block for right content
 

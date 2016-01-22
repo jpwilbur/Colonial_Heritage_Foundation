@@ -1,1 +1,28 @@
 <%inherit file="app_base.htm"/>
+
+<%block name="center_content">
+<h2>FAQ</h2>
+<div class="panel-group" id="accordion">
+    <% QA = [
+        ["what is love?", "baby, dont hurt me",1],
+        ["how much wood coult a woodchuck chuck if a woodchuck could chuck wood?", "around 20 if the stars are aligned",2],
+        ["what is the answer to life?","42",3],
+       ]
+    %>
+    %for question, answer, questionNum in QA:
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <% collapseid = "collapse" + str(questionNum)%>
+                    <a data-toggle="collapse" data-parent="#accordion" href=#${collapseid}>${question}</a>
+                </h4>
+            </div>
+            <div id="${collapseid}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    ${answer}
+                </div>
+            </div>
+        </div>
+    %endfor
+</div>
+</%block>

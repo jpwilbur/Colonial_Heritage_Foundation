@@ -5,13 +5,13 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1453323311.0362332
+_modified_time = 1453485742.9506493
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
-_exports = ['above_columns', 'title', 'right_content', 'left_content', 'main_body', 'center_content', 'footer', 'header', 'maintenance_message', 'alert_message']
+_exports = ['header', 'left_content', 'maintenance_message', 'right_content', 'title', 'above_columns', 'main_body', 'center_content', 'footer', 'alert_message']
 
 
 from django_mako_plus.controller import static_files 
@@ -20,29 +20,29 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def above_columns():
-            return render_above_columns(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        def footer():
-            return render_footer(context._locals(__M_locals))
         def header():
             return render_header(context._locals(__M_locals))
-        def alert_message():
-            return render_alert_message(context._locals(__M_locals))
-        def center_content():
-            return render_center_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def main_body():
-            return render_main_body(context._locals(__M_locals))
         def maintenance_message():
             return render_maintenance_message(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        def above_columns():
+            return render_above_columns(context._locals(__M_locals))
+        def center_content():
+            return render_center_content(context._locals(__M_locals))
+        def footer():
+            return render_footer(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
+        def main_body():
+            return render_main_body(context._locals(__M_locals))
+        def alert_message():
+            return render_alert_message(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n  ')
         static_renderer = static_files.StaticRenderer(self) 
@@ -81,37 +81,13 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_above_columns(context,**pageargs):
+def render_header(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def above_columns():
-            return render_above_columns(context)
+        def header():
+            return render_header(context)
         __M_writer = context.writer()
-        __M_writer('\n                  above_columns content\n                ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_title(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def title():
-            return render_title(context)
-        __M_writer = context.writer()
-        __M_writer('\n        webpage title\n      ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_right_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def right_content():
-            return render_right_content(context)
-        __M_writer = context.writer()
-        __M_writer('\n                right column content\n              ')
+        __M_writer('\n      ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -123,7 +99,55 @@ def render_left_content(context,**pageargs):
         def left_content():
             return render_left_content(context)
         __M_writer = context.writer()
-        __M_writer('\n                left column content\n              ')
+        __M_writer('\n              ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_maintenance_message(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def maintenance_message():
+            return render_maintenance_message(context)
+        __M_writer = context.writer()
+        __M_writer('\n      ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_right_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def right_content():
+            return render_right_content(context)
+        __M_writer = context.writer()
+        __M_writer('\n              ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\n      ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_above_columns(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def above_columns():
+            return render_above_columns(context)
+        __M_writer = context.writer()
+        __M_writer('\n                ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -132,24 +156,24 @@ def render_left_content(context,**pageargs):
 def render_main_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def above_columns():
-            return render_above_columns(context)
-        def footer():
-            return render_footer(context)
         def header():
             return render_header(context)
-        def alert_message():
-            return render_alert_message(context)
-        def center_content():
-            return render_center_content(context)
+        def maintenance_message():
+            return render_maintenance_message(context)
         def right_content():
             return render_right_content(context)
         def left_content():
             return render_left_content(context)
+        def above_columns():
+            return render_above_columns(context)
+        def center_content():
+            return render_center_content(context)
+        def footer():
+            return render_footer(context)
         def main_body():
             return render_main_body(context)
-        def maintenance_message():
-            return render_maintenance_message(context)
+        def alert_message():
+            return render_alert_message(context)
         __M_writer = context.writer()
         __M_writer('\n    <body>\n      ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'maintenance_message'):
@@ -210,7 +234,7 @@ def render_center_content(context,**pageargs):
         def center_content():
             return render_center_content(context)
         __M_writer = context.writer()
-        __M_writer('\n                <h1>center column content</h1>\n              ')
+        __M_writer('\n              ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -222,31 +246,7 @@ def render_footer(context,**pageargs):
         def footer():
             return render_footer(context)
         __M_writer = context.writer()
-        __M_writer('\n            footer content\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_header(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def header():
-            return render_header(context)
-        __M_writer = context.writer()
-        __M_writer('\n        header content\n      ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_maintenance_message(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def maintenance_message():
-            return render_maintenance_message(context)
-        __M_writer = context.writer()
-        __M_writer('\n        maintence_message content\n      ')
+        __M_writer('\n          ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -258,7 +258,7 @@ def render_alert_message(context,**pageargs):
         def alert_message():
             return render_alert_message(context)
         __M_writer = context.writer()
-        __M_writer('\n        alert_message content\n      ')
+        __M_writer('\n      ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -266,6 +266,6 @@ def render_alert_message(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"132": 30, "261": 40, "267": 261, "17": 2, "19": 0, "196": 75, "154": 30, "159": 34, "160": 36, "165": 38, "166": 40, "171": 42, "172": 44, "47": 2, "48": 3, "177": 50, "178": 52, "52": 3, "53": 4, "183": 59, "184": 61, "57": 4, "189": 66, "190": 68, "63": 19, "64": 21, "65": 21, "66": 24, "67": 24, "68": 27, "69": 27, "70": 27, "201": 82, "75": 85, "76": 88, "77": 88, "78": 88, "207": 64, "84": 48, "213": 64, "90": 48, "219": 80, "96": 14, "225": 80, "102": 14, "195": 73, "231": 36, "108": 71, "237": 36, "114": 71, "243": 32, "62": 16, "120": 57, "249": 32, "126": 57, "255": 40}, "uri": "base.htm", "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm"}
+{"filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm", "line_map": {"132": 14, "261": 37, "138": 14, "267": 261, "144": 44, "17": 2, "19": 0, "150": 44, "196": 40, "156": 29, "47": 2, "48": 3, "178": 29, "52": 3, "53": 4, "183": 32, "184": 34, "57": 4, "189": 35, "190": 37, "63": 18, "64": 20, "65": 20, "66": 23, "67": 23, "68": 26, "69": 26, "70": 26, "201": 45, "202": 47, "75": 76, "76": 79, "77": 79, "78": 79, "207": 53, "208": 55, "84": 34, "213": 59, "214": 61, "90": 34, "219": 65, "220": 67, "96": 52, "225": 73, "102": 52, "231": 58, "108": 31, "237": 58, "114": 31, "243": 72, "62": 15, "120": 64, "249": 72, "255": 37, "126": 64, "195": 38}, "source_encoding": "utf-8", "uri": "base.htm"}
 __M_END_METADATA
 """
