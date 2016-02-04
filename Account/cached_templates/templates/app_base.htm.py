@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1454534341.845651
+_modified_time = 1454533301.7682333
 _enable_loop = True
-_template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/app_base.htm'
+_template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/Account/templates/app_base.htm'
 _template_uri = 'app_base.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
@@ -24,7 +24,7 @@ def _mako_generate_namespaces(context):
     pass
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
-    return runtime._inherit_from(context, 'base.htm', _template_uri)
+    return runtime._inherit_from(context, '/homepage/templates/base.htm', _template_uri)
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -51,7 +51,7 @@ def render_body(context,**pageargs):
         def center_content():
             return render_center_content(context._locals(__M_locals))
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n          ')
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
             context['self'].title(**pageargs)
         
@@ -164,9 +164,9 @@ def render_account_dropdown(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\r\n')
         if not request.user.is_authenticated():
-            __M_writer('                  <ul class="nav navbar-nav navbar-right">\r\n                    <li class="dropdown">\r\n                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                      <ul class="dropdown-menu">\r\n                        <li><a href="/Account/signup">Sign up</a></li>\r\n                        <li><a id="loginlink" class="a">Log in</a></li>\r\n                      </ul>\r\n                    </li>\r\n                  </ul>\r\n')
+            __M_writer('                    <ul class="nav navbar-nav navbar-right">\r\n                      <li class="dropdown">\r\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                        <ul class="dropdown-menu">\r\n                          <li><a href="/Account/signup"></a>Sign up</li>\r\n                          <li><a id="loginlink" class="a">Log in</a></li>\r\n                        </ul>\r\n                      </li>\r\n                    </ul>\r\n')
         else:
-            __M_writer('                  <ul class="nav navbar-nav navbar-right">\r\n                    <li class="dropdown">\r\n                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                      <ul class="dropdown-menu">\r\n                        <li><a href="/Account/accountinfo">Account info</a></li>\r\n                        <li><a href="/Account/logout">Logout</a></li>\r\n                      </ul>\r\n                    </li>\r\n                  </ul>\r\n')
+            __M_writer('                    <ul class="nav navbar-nav navbar-right">\r\n                      <li class="dropdown">\r\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                        <ul class="dropdown-menu">\r\n                          <li><a href="#">Account info</a></li>\r\n                          <li><a href="/Account/logout">Logout</a></li>\r\n                        </ul>\r\n                      </li>\r\n                    </ul>\r\n')
         __M_writer('                ')
         return ''
     finally:
@@ -194,7 +194,7 @@ def render_title(context,**pageargs):
         def title():
             return render_title(context)
         __M_writer = context.writer()
-        __M_writer('\r\n            Colonial Heritage Foundation\r\n          ')
+        __M_writer('\r\n  Colonial Heritage Foundation\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -212,11 +212,7 @@ def render_header(context,**pageargs):
         __M_writer('\r\n')
 
         menu_tabs = [
-          [ "Home",    "index"  ],
-          [ "About",   "about"  ],
-          [ "Contact", "contact"],
-          [ "FAQ",     "faq"    ],
-          [ "Terms",   "terms"    ],
+          [ "Sign Up",   "signup"    ],
         ]
         
         
@@ -224,7 +220,7 @@ def render_header(context,**pageargs):
         for tab, page in menu_tabs:
             __M_writer('                     <li class="')
             __M_writer(str( 'active' if request.dmp_router_page == page else ''))
-            __M_writer('"><a href="/homepage/')
+            __M_writer('"><a href="/Account/')
             __M_writer(str(page))
             __M_writer('">')
             __M_writer(str(tab))
@@ -234,7 +230,7 @@ def render_header(context,**pageargs):
             context['self'].account_dropdown(**pageargs)
         
 
-        __M_writer('\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n')
+        __M_writer('\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n\r\n')
         __M_writer('  </header>\r\n')
         return ''
     finally:
@@ -279,6 +275,6 @@ def render_left_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"256": 141, "230": 44, "224": 43, "131": 145, "132": 148, "133": 148, "262": 141, "138": 151, "139": 152, "140": 152, "280": 274, "146": 128, "152": 128, "28": 0, "158": 47, "274": 133, "165": 47, "166": 48, "167": 49, "168": 58, "169": 59, "170": 69, "223": 29, "176": 9, "54": 1, "183": 9, "184": 12, "185": 12, "59": 5, "60": 7, "191": 3, "65": 15, "66": 17, "197": 3, "71": 111, "72": 113, "268": 133, "203": 20, "77": 124, "78": 126, "83": 129, "84": 131, "213": 21, "89": 134, "90": 136, "95": 138, "96": 140, "225": 44, "226": 44, "227": 44, "228": 44, "101": 142, "102": 144, "231": 44, "232": 46, "107": 154, "237": 69, "238": 110, "229": 44, "113": 137, "244": 115, "119": 137, "212": 20, "250": 115, "125": 145}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/app_base.htm", "uri": "app_base.htm"}
+{"source_encoding": "utf-8", "line_map": {"224": 40, "131": 149, "132": 152, "133": 152, "264": 137, "138": 155, "139": 156, "140": 156, "258": 145, "270": 137, "146": 132, "276": 270, "152": 132, "28": 0, "158": 43, "165": 43, "166": 44, "167": 45, "168": 54, "169": 55, "170": 65, "223": 40, "176": 9, "54": 1, "183": 9, "184": 12, "185": 12, "59": 5, "60": 7, "191": 3, "65": 15, "66": 17, "197": 3, "71": 115, "72": 117, "203": 20, "77": 128, "78": 130, "83": 133, "84": 135, "213": 21, "89": 138, "90": 140, "219": 25, "220": 39, "221": 40, "222": 40, "95": 142, "96": 144, "225": 40, "226": 40, "227": 40, "228": 42, "101": 146, "102": 148, "233": 65, "234": 114, "107": 158, "240": 119, "113": 141, "246": 119, "119": 141, "212": 20, "252": 145, "125": 149}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/Account/templates/app_base.htm", "uri": "app_base.htm"}
 __M_END_METADATA
 """

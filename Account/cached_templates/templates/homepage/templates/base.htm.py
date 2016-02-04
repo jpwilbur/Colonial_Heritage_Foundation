@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1454532214.1967006
+_modified_time = 1454532197.907894
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm'
-_template_uri = 'base.htm'
+_template_uri = '/homepage/templates/base.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
 _exports = ['maintenance_message', 'alert_message', 'main_body', 'right_content', 'title', 'center_content', 'header', 'footer', 'above_columns', 'left_content']
@@ -270,6 +270,6 @@ def render_left_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm", "uri": "base.htm", "line_map": {"259": 55, "134": 31, "193": 67, "265": 55, "139": 34, "140": 36, "271": 265, "17": 2, "146": 40, "19": 0, "151": 41, "152": 43, "47": 2, "157": 48, "158": 50, "176": 70, "163": 56, "164": 58, "169": 62, "170": 64, "199": 14, "223": 37, "175": 68, "48": 3, "52": 3, "53": 4, "57": 4, "187": 67, "62": 15, "63": 18, "64": 20, "65": 20, "66": 21, "67": 21, "68": 22, "69": 22, "70": 25, "71": 25, "72": 28, "73": 28, "74": 28, "205": 14, "79": 79, "80": 82, "81": 82, "82": 82, "211": 61, "88": 33, "217": 61, "94": 33, "181": 76, "100": 40, "229": 37, "145": 38, "106": 40, "235": 75, "112": 31, "241": 75, "247": 47, "253": 47}, "source_encoding": "utf-8"}
+{"filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "line_map": {"259": 55, "134": 31, "193": 67, "265": 55, "139": 34, "140": 36, "271": 265, "17": 2, "146": 40, "19": 0, "151": 41, "152": 43, "47": 2, "157": 48, "158": 50, "176": 70, "163": 56, "164": 58, "169": 62, "170": 64, "199": 14, "223": 37, "175": 68, "48": 3, "52": 3, "53": 4, "57": 4, "187": 67, "62": 15, "63": 18, "64": 20, "65": 20, "66": 21, "67": 21, "68": 22, "69": 22, "70": 25, "71": 25, "72": 28, "73": 28, "74": 28, "205": 14, "79": 79, "80": 82, "81": 82, "82": 82, "211": 61, "88": 33, "217": 61, "94": 33, "181": 76, "100": 40, "229": 37, "145": 38, "106": 40, "235": 75, "112": 31, "241": 75, "247": 47, "253": 47}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """

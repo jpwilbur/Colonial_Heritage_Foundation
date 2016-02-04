@@ -1,9 +1,9 @@
-<%inherit file="base.htm"/>
+<%inherit file="/homepage/templates/base.htm"/>
 
-          <%block name="title">
-            Colonial Heritage Foundation
-          </%block>
-          ## block for page title
+<%block name="title">
+  Colonial Heritage Foundation
+</%block>
+  ## block for page title
 
 
 <%block name="maintenance_message">
@@ -20,11 +20,7 @@
 <%block name="header">
 <%
   menu_tabs = [
-    [ "Home",    "index"  ],
-    [ "About",   "about"  ],
-    [ "Contact", "contact"],
-    [ "FAQ",     "faq"    ],
-    [ "Terms",   "terms"    ],
+    [ "Sign Up",   "signup"    ],
   ]
 %>
   <header>
@@ -41,35 +37,36 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   % for tab, page in menu_tabs:
-                     <li class="${ 'active' if request.dmp_router_page == page else ''}"><a href="/homepage/${page}">${tab}</a></li>
+                     <li class="${ 'active' if request.dmp_router_page == page else ''}"><a href="/Account/${page}">${tab}</a></li>
                   % endfor
                 </ul>
                 <%block name="account_dropdown">
-                % if not request.user.is_authenticated():
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="/Account/signup">Sign up</a></li>
-                        <li><a id="loginlink" class="a">Log in</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                % else:
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="/Account/accountinfo">Account info</a></li>
-                        <li><a href="/Account/logout">Logout</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                % endif
+                  % if not request.user.is_authenticated():
+                    <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/Account/signup"></a>Sign up</li>
+                          <li><a id="loginlink" class="a">Log in</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  % else:
+                    <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Account info</a></li>
+                          <li><a href="/Account/logout">Logout</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  % endif
                 </%block>
             </div>
         </div>
     </div>
+
 
     ## <div class="container-fluid">
     ##   <nav class="navbar navbar-inverse" role="navigation">
@@ -88,18 +85,25 @@
     ##         <ul class="nav navbar-nav">
     ##         ##this for loop is for creating the tabs up on top; change "menu_tabs" above to add tabs with their corresponding link
     ##           % for tab, page in menu_tabs:
-    ##              <li class="${ 'active' if request.dmp_router_page == page else ''}"><a href="/homepage/${page}">${tab}</a></li>
+    ##              <li class="${ 'active' if request.dmp_router_page == page else ''}"><a href="/Account/${page}">${tab}</a></li>
     ##           % endfor
     ##           <%block name="account_dropdown">
-    ##           <div class="nav navbar-nav bar-right">
+    ##             % if not request.user.is_authenticated():
     ##             <li class="dropdown">
     ##               <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+    ##               <ul class="dropdown-menu">
+    ##                 <li><a href="/Account/login">Log in</a></li>
+    ##               </ul>
+    ##             </li>
+    ##             % else:
+    ##             <li class="dropdown">
+    ##               <a href="#" class="dropdown-toggle" data-toggle="dropdown">${request.user}s Account <b class="caret"></b></a>
     ##               <ul class="dropdown-menu">
     ##                 <li><a href="#">Account info</a></li>
     ##                 <li><a href="/Account/logout">Logout</a></li>
     ##               </ul>
     ##             </li>
-    ##             </div>
+    ##             % endif
     ##           </%block>
     ##           ##block for dorpdown for account links
     ##         </ul>

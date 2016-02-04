@@ -1,0 +1,80 @@
+<%inherit file="app_base.htm"/>
+
+<%block name="center_content">
+
+  <div>
+    <h4>Your Account Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Username:
+        </dt>
+
+        <dd>
+            ${request.user.username}
+        </dd>
+
+        <dt>
+            Email:
+        </dt>
+
+        <dd>
+            ${request.user.email}
+        </dd>
+
+        <dt>
+            First Name:
+        </dt>
+
+        <dd>
+            ${request.user.first_name}
+        </dd>
+
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            ${request.user.last_name}
+        </dd>
+
+        <dt>
+            Address 1
+        </dt>
+
+        <dd>
+            ${request.user.address1}
+        </dd>
+
+        <dt>
+            Address 2
+        </dt>
+
+        <dd>
+            ${request.user.address2}
+        </dd>
+
+        <dt>
+            Birth Date:
+        </dt>
+
+        <dd>
+            ${request.user.birth}
+        </dd>
+
+        <dt>
+            Phone Number:
+        </dt>
+
+        <dd>
+            ${request.user.phone_number}
+        </dd>
+    </dl>
+  </div>
+  <p>
+    <a href="/Account/editaccount">Edit</a> |
+    <a href="/Account/changepassword">Change Password</a> |
+    <a href="/">Return to Homepage</a>
+  </p>
+
+</%block>

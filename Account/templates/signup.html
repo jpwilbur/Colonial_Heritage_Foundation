@@ -1,0 +1,10 @@
+<%inherit file="app_base.htm"/>
+
+
+<%block name="center_content">
+  <form action="/Account/signup" method="post">
+    <table class="table table-striped">
+      ${form}
+    </table>
+    <input class="btn btn-success" type="submit" value="Sign up now!">
+</%block>

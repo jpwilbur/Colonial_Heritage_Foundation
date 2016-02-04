@@ -1,0 +1,16 @@
+<%inherit file="app_base.htm"/>
+
+<%block name="above_columns">
+  <h3>Edit Your Account Information Below</h3>
+</%block>
+
+<%block name="center_content">
+  <form action="/Account/editaccount" method="POST">
+    <table class="table table-striped">
+      ${form}
+    </table>
+    <input class="btn btn-success" type="submit" value="Save Changes">
+    <a class="btn btn-default" href="/Account/accountinfo">Back</a>
+    
+  </form>
+</%block>
