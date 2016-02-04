@@ -17,9 +17,7 @@ def process_request(request):
     except amod.User.DoesNotExist:
         return HttpResponseRedirect('/Account/signup')
 
-
-
-    form = edit_form(initial = {
+    form = edit_form( initial = {
         'username' : u.username,
         'first_name' : u.first_name,
         'last_name' : u.last_name,
@@ -52,9 +50,9 @@ def process_request(request):
     return dmp_render_to_response(request, 'editaccount.html', template_vars)
 
 class edit_form(forms.Form):
-    username = forms.CharField(label='username', required=True, max_length=30)
-    first_name = forms.CharField(label='first_name', required=True, max_length=30)
-    last_name = forms.CharField(label='last_name', required=True, max_length=30)
+    username = forms.CharField(label='username', required=True, max_length=300)
+    first_name = forms.CharField(label='first_name', required=True, max_length=300)
+    last_name = forms.CharField(label='last_name', required=True, max_length=300)
     email = forms.EmailField(label='email', required=True)
     address1 = forms.CharField(label='address1', required=True, max_length=300)
     address2 = forms.CharField(label='address2', required=True, max_length=300)

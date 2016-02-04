@@ -36,18 +36,18 @@ class signup_form(forms.Form):
     first_name = forms.CharField(label='first_name', required=True, max_length=30)
     last_name = forms.CharField(label='last_name', required=True, max_length=30)
     email = forms.EmailField(label='email', required=True)
-    address1 = forms.CharField(label='address1', required=True, max_length=300)
-    address2 = forms.CharField(label='address2', required=True, max_length=300)
+    address1 = forms.CharField(label='address1', required=True, max_length=30)
+    address2 = forms.CharField(label='address2', required=True, max_length=30)
     birth = forms.DateField(label='birth', required=True)
     phone_number = forms.CharField(label='phone_number', required=True, max_length=20)
     password = forms.CharField(label='password', required=True, max_length=20 , widget=forms.PasswordInput())
     password2 = forms.CharField(label='password2', required=True, max_length=20, widget=forms.PasswordInput())
 
     def clean_username (self):
-        if User.objects.filer(username=username).count() > 0:
+        if User.objects.filter(username=self.cleaned_data.get('username')).count() > 0:
             raise forms.ValidationError('That username already exists in our system.')
-        return username
-        
+        return self.cleaned_data['username']
+
     def clean(self):
         if self.cleaned_data.get('password') != self.cleaned_data.get('password2'):
             raise forms.ValidationError('Passwords do not match. Try again.')
