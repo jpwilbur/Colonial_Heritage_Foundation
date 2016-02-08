@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1454532205.048803
+_modified_time = 1454708656.0943005
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/Account/templates/login.html'
 _template_uri = 'login.html'
@@ -51,7 +51,7 @@ def render_center_content(context,**pageargs):
             return render_center_content(context)
         form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n  <form id="loginform"action="/Account/login" method="post">\r\n    <table class="table table-striped">\r\n      ')
+        __M_writer('\r\n  <form id="loginform" action="/Account/login" method="post">\r\n    <table class="table table-striped">\r\n      ')
         __M_writer(str(form))
         __M_writer('\r\n    </table>\r\n    <input class="btn btn-success" type="submit" value="Log in">\r\n')
         return ''
@@ -61,6 +61,6 @@ def render_center_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/Account/templates/login.html", "uri": "login.html", "line_map": {"36": 1, "54": 4, "55": 7, "56": 7, "41": 10, "28": 0, "62": 56, "47": 4}, "source_encoding": "utf-8"}
+{"source_encoding": "utf-8", "uri": "login.html", "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/Account/templates/login.html", "line_map": {"36": 1, "54": 4, "55": 7, "56": 7, "41": 10, "28": 0, "62": 56, "47": 4}}
 __M_END_METADATA
 """

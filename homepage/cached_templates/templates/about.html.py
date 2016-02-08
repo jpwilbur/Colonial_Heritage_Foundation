@@ -5,13 +5,13 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1453330756.0200148
+_modified_time = 1454814381.622011
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/about.html'
 _template_uri = 'about.html'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
-_exports = ['center_content', 'above_columns', 'left_content', 'active', 'right_content']
+_exports = ['center_content', 'right_content', 'above_columns', 'left_content', 'active']
 
 
 def _mako_get_namespace(context, name):
@@ -31,14 +31,14 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def center_content():
             return render_center_content(context._locals(__M_locals))
-        def above_columns():
-            return render_above_columns(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        def active():
-            return render_active(context._locals(__M_locals))
+        def above_columns():
+            return render_above_columns(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        def active():
+            return render_active(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'active'):
@@ -83,6 +83,18 @@ def render_center_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_right_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def right_content():
+            return render_right_content(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n  <div class="content">\r\n    <h4>Right Content</h3>\r\n    <h5>Ex elit eirmod vim. Qui ei novum debet menandri. Quis modus tacimates sea cu. Purto vulputate comprehensam duo ne. Sit viderer expetendis ne, rebum scaevola ponderum eum ex. An mollis saperet vocibus sit. Id esse simul rationibus ius, eu vel semper nonumes.\r\n\r\n Mel te stet appellantur.\r\n  </h4>\r\n</div>\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_above_columns(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -119,20 +131,8 @@ def render_active(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_right_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def right_content():
-            return render_right_content(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n  <div class="content">\r\n    <h4>Right Content</h3>\r\n    <h5>Ex elit eirmod vim. Qui ei novum debet menandri. Quis modus tacimates sea cu. Purto vulputate comprehensam duo ne. Sit viderer expetendis ne, rebum scaevola ponderum eum ex. An mollis saperet vocibus sit. Id esse simul rationibus ius, eu vel semper nonumes.\r\n\r\n Mel te stet appellantur.\r\n  </h4>\r\n</div>\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"uri": "about.html", "source_encoding": "utf-8", "line_map": {"128": 25, "80": 9, "98": 35, "68": 47, "134": 128, "104": 35, "28": 0, "74": 9, "43": 1, "110": 3, "48": 7, "116": 3, "53": 22, "86": 45, "58": 33, "92": 45, "122": 25, "63": 43}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/about.html"}
+{"line_map": {"128": 3, "80": 9, "98": 45, "68": 47, "134": 128, "104": 45, "28": 0, "74": 9, "43": 1, "110": 35, "48": 7, "116": 35, "53": 22, "86": 25, "58": 33, "92": 25, "122": 3, "63": 43}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/about.html", "source_encoding": "utf-8", "uri": "about.html"}
 __M_END_METADATA
 """

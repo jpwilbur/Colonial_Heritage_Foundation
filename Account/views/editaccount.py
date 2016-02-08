@@ -14,7 +14,7 @@ def process_request(request):
 
     try:
         u = amod.User.objects.get(id=request.user.id)
-    except amod.User.DoesNotExist:
+    except amod.User.DoesNotExist as e:
         return HttpResponseRedirect('/Account/signup')
 
     form = edit_form( initial = {
@@ -42,22 +42,20 @@ def process_request(request):
             u.phone_number = form.cleaned_data.get('phone_number')
             u.save()
             return HttpResponseRedirect('/homepage/index')
-        else:
-            print('you done messed up')
     template_vars = {
         'form': form,
     }
     return dmp_render_to_response(request, 'editaccount.html', template_vars)
 
 class edit_form(forms.Form):
-    username = forms.CharField(label='username', required=True, max_length=300)
-    first_name = forms.CharField(label='first_name', required=True, max_length=300)
-    last_name = forms.CharField(label='last_name', required=True, max_length=300)
-    email = forms.EmailField(label='email', required=True)
-    address1 = forms.CharField(label='address1', required=True, max_length=300)
-    address2 = forms.CharField(label='address2', required=True, max_length=300)
-    birth = forms.DateField(label='birth', required=True)
-    phone_number = forms.CharField(label='phone_number', required=True, max_length=20)
+    username = forms.CharField(label='Username', required=True, max_length=300)
+    first_name = forms.CharField(label='First Name', required=True, max_length=300)
+    last_name = forms.CharField(label='Last Name', required=True, max_length=300)
+    email = forms.EmailField(label='Email', required=True)
+    address1 = forms.CharField(label='Address 1', required=True, max_length=300)
+    address2 = forms.CharField(label='Address 2', required=True, max_length=300)
+    birth = forms.DateField(label='Birth Date', required=True)
+    phone_number = forms.CharField(label='Phone Number', required=True, max_length=20)
 
     def clean_username (self):
         if amod.User.objects.filter(username=self.cleaned_data.get('username')).exclude(id=self.userid).count() > 0:
