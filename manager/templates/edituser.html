@@ -1,0 +1,15 @@
+<%inherit file="app_base.htm"/>
+
+<%block name="above_columns">
+  <h3>Edit ${first_name} ${first_name}'s Account Information Below</h3>
+</%block>
+
+<%block name="center_content">
+  <form action="/manager/users.edit/${userid}" method="POST">
+    <table class="table table-striped">
+      ${form}
+    </table>
+    <input class="btn btn-success" type="submit" value="Save Changes">
+    <a class="btn btn-default" href="/manager/users">Back</a>
+  </form>
+</%block>

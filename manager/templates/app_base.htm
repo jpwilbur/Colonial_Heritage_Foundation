@@ -1,0 +1,159 @@
+<%inherit file="/homepage/templates/base.htm"/>
+
+<%block name="title">
+  Colonial Heritage Foundation
+</%block>
+  ## block for page title
+
+
+<%block name="maintenance_message">
+  <div class="alert alert-warning" role="alert">
+    <div class="text-center">
+      <strong>${request.user.first_name + ' ' + request.user.last_name + ',' if request.user.is_authenticated() else ''}Ye Be warned!</strong> This site is currently under construction.
+    </div>
+  </div>
+</%block>
+  ## block for maintence message
+
+
+
+<%block name="header">
+<%
+  menu_tabs = [
+    [ "Users",   "users"    ],
+  ]
+%>
+  <header>
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index">C<span class="faa faa-spin fa fa-cog animated"></span>lonial Heritage <span class="faa faa-horizontal fa fa-flag-o animated"></span>oundation</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                  % for tab, page in menu_tabs:
+                     <li class="${ 'active' if request.dmp_router_page == page else ''}"><a href="/manager/${page}">${tab}</a></li>
+                  % endfor
+                </ul>
+                <%block name="account_dropdown">
+                  % if not request.user.is_authenticated():
+                    <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/Account/signup">Sign up</a></li>
+                          <li><a id="loginlink" class="a">Log in</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  % else:
+                    <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Account info</a></li>
+                          <li><a href="/Account/logout">Logout</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  % endif
+                </%block>
+            </div>
+        </div>
+    </div>
+
+
+    ## <div class="container-fluid">
+    ##   <nav class="navbar navbar-inverse" role="navigation">
+    ##     <div class="container-fluid">
+    ##       <div class="navbar-header">
+    ##         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+    ##           <span class="sr-only">Toggle navigation</span>
+    ##           <span class="icon-bar"></span>
+    ##           <span class="icon-bar"></span>
+    ##           <span class="icon-bar"></span>
+    ##         </button>
+    ##         <a class="navbar-brand" href="/index">C<span class="faa faa-spin fa fa-cog animated"></span>lonial Heritage <span class="faa faa-horizontal fa fa-flag-o animated"></span>oundation</a>
+    ##       </div>
+    ##       <!-- Collect the nav links, forms, and other content for toggling -->
+    ##       <div class="collapse navbar-collapse" id="navbar">
+    ##         <ul class="nav navbar-nav">
+    ##         ##this for loop is for creating the tabs up on top; change "menu_tabs" above to add tabs with their corresponding link
+    ##           % for tab, page in menu_tabs:
+    ##              <li class="${ 'active' if request.dmp_router_page == page else ''}"><a href="/Account/${page}">${tab}</a></li>
+    ##           % endfor
+    ##           <%block name="account_dropdown">
+    ##             % if not request.user.is_authenticated():
+    ##             <li class="dropdown">
+    ##               <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+    ##               <ul class="dropdown-menu">
+    ##                 <li><a href="/Account/login">Log in</a></li>
+    ##               </ul>
+    ##             </li>
+    ##             % else:
+    ##             <li class="dropdown">
+    ##               <a href="#" class="dropdown-toggle" data-toggle="dropdown">${request.user}s Account <b class="caret"></b></a>
+    ##               <ul class="dropdown-menu">
+    ##                 <li><a href="#">Account info</a></li>
+    ##                 <li><a href="/Account/logout">Logout</a></li>
+    ##               </ul>
+    ##             </li>
+    ##             % endif
+    ##           </%block>
+    ##           ##block for dorpdown for account links
+    ##         </ul>
+    ##       </div><!-- /.navbar-collapse -->
+    ##     </div>
+    ##   </nav>
+    ## </div><!-- /.container-fluid -->
+  </header>
+</%block>
+    ## header block
+
+
+<%block name="alert_message">
+  <div class="row">
+    <div class="col-md-2" id="alert">
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> This is a warning. You have been warned.
+      </div>
+    </div>
+  </div>
+</%block>
+  ## block for fixed alert message
+
+
+<%block name="above_columns">
+</%block>
+  ## block for area above right, left and center columns
+
+
+<%block name="left_content">
+</%block>
+  ## block for left content
+
+<%block name="center_content">
+</%block>
+  ## block for center content
+
+<%block name="right_content">
+</%block>
+  ## block for right content
+
+<%block name="footer">
+  <footer class="footer">
+  ##not very good way to code, but allows year to be on every page throughout the homepage app
+   <%
+   import datetime
+   current_year = datetime.date.today().year
+   %>
+    Copyright &copy ${current_year} - Jarrod Wilbur
+  </footer>
+</%block>
+  ## block for footer of page; probably wont have change, just placed here for precaution

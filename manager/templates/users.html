@@ -29,9 +29,8 @@
         <td></td>
         <td></td>
         <td>
-          <a href="/manager/users.edit/${user.id}">Edit</a>
-          |
-          <a href="/manager/users.delete/${user.id}" class="delete_button">Delete</a>
+          <a href="/manager/users.edit/${user.id}">Edit</a> |
+          <a data-pid= ${ user.id } id="deletelink${ user.id }" data-toggle="modal" class="delete_button">Delete</a>
         </td>
       </tr>
     % endfor
