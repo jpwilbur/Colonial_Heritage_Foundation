@@ -5,7 +5,7 @@
 </%block>
 
 <%block name="center_content">
-  <p class="text-right"><a href="/manager/users.create" class="btn btn-primary">Create User</a></p>
+  <p class="text-right"><a id="createuserlink" class="btn btn-primary">Create User</a></p>
 
   <table class="table table-striped">
     <tr>
@@ -29,8 +29,8 @@
         <td></td>
         <td></td>
         <td>
-          <a href="/manager/users.edit/${user.id}">Edit</a> |
-          <a data-pid= ${ user.id } id="deletelink${ user.id }" data-toggle="modal" class="delete_button">Delete</a>
+          <a data-pid= ${ user.id } data-toggle="modal" class="edituserlink">Edit</a> |
+          <a data-pid= ${ user.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
         </td>
       </tr>
     % endfor

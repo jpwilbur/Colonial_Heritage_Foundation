@@ -1,11 +1,7 @@
-<%inherit file="app_base.htm"/>
-
-<%block name="above_columns">
-  <h3>Edit ${first_name} ${first_name}'s Account Information Below</h3>
-</%block>
+<%inherit file="/homepage/templates/base_ajax.htm"/>
 
 <%block name="center_content">
-  <form action="/manager/users.edit/${userid}" method="POST">
+  <form id="edituserform" action="/manager/users.edit/${userid}" method="POST">
     <table class="table table-striped">
       ${form}
     </table>
