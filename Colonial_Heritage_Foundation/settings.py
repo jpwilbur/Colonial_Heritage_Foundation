@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Account',
     'manager',
     'catalog',
+    'polymorphic',
 ]
 
 MIDDLEWARE_CLASSES = [
