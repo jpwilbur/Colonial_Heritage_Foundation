@@ -2,35 +2,36 @@ $(function () {
   $('.deletelink').click(function(){
     var pid = $(this).attr('data-pid');
     $.loadmodal({
-          url: '/manager/deleteuser',
+          url: '/catalog/deleteproduct',
           id: 'deletemodal',
           title: 'WARNING',
           width: '700px',
           buttons: {'Delete': function() {
-            window.location="/manager/users.delete/" + pid;
+            window.location="/catalog/products.delete/" + pid;
           }},
         });
   });// click
 }); // ready
 
 $(function () {
-  $('#createuserlink').click(function(){
+  $('#createproductlink').click(function(){
     $.loadmodal({
-          url: '/manager/users.create',
-          id: 'createusermodal',
-          title: 'Create New User',
+          url: '/catalog/products.create',
+          id: 'createproductmodal',
+          title: 'Create New Product',
           width: '700px',
         });
   });// click
 }); // ready
 
 $(function () {
-  $('.edituserlink').click(function(){
+  $('.editproductlink').click(function(){
     var pid = $(this).attr('data-pid');
+    var ptype = $(this).attr('data-ptype');
     $.loadmodal({
-          url: '/manager/users.edit/' + pid,
-          id: 'editusermodal',
-          title: 'Edit User',
+          url: '/catalog/products.edit/' + pid + '/' + ptype,
+          id: 'editproductmodal',
+          title: 'Edit Product',
           width: '700px',
         });
   });// click

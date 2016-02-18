@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1455678369.879977
+_modified_time = 1455678159.799177
 _enable_loop = True
-_template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/manager/templates/app_base.htm'
+_template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/app_base.htm'
 _template_uri = 'app_base.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
@@ -278,6 +278,6 @@ def render_title(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"132": 9, "133": 12, "134": 12, "267": 3, "140": 138, "194": 20, "273": 3, "146": 138, "279": 273, "152": 150, "28": 0, "218": 66, "158": 150, "159": 153, "160": 153, "219": 115, "261": 146, "165": 156, "166": 157, "167": 157, "173": 133, "179": 133, "54": 1, "185": 20, "59": 5, "60": 7, "65": 15, "66": 17, "195": 21, "71": 116, "72": 118, "202": 26, "203": 40, "204": 41, "77": 129, "78": 131, "205": 41, "208": 41, "209": 41, "210": 41, "83": 134, "84": 136, "206": 41, "249": 66, "89": 139, "90": 141, "207": 41, "95": 143, "96": 145, "225": 142, "101": 147, "102": 149, "231": 142, "107": 159, "237": 44, "113": 120, "211": 41, "244": 44, "245": 45, "246": 46, "119": 120, "248": 56, "212": 41, "255": 146, "247": 55, "125": 9, "213": 43}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/manager/templates/app_base.htm"}
+{"uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"132": 9, "133": 12, "134": 12, "267": 3, "140": 138, "194": 20, "273": 3, "146": 138, "279": 273, "152": 150, "28": 0, "218": 66, "158": 150, "159": 153, "160": 153, "219": 115, "261": 146, "165": 156, "166": 157, "167": 157, "173": 133, "179": 133, "54": 1, "185": 20, "59": 5, "60": 7, "65": 15, "66": 17, "195": 21, "71": 116, "72": 118, "202": 26, "203": 40, "204": 41, "77": 129, "78": 131, "205": 41, "208": 41, "209": 41, "210": 41, "83": 134, "84": 136, "206": 41, "249": 66, "89": 139, "90": 141, "207": 41, "95": 143, "96": 145, "225": 142, "101": 147, "102": 149, "231": 142, "107": 159, "237": 44, "113": 120, "211": 41, "244": 44, "245": 45, "246": 46, "119": 120, "248": 56, "212": 41, "255": 146, "247": 55, "125": 9, "213": 43}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/app_base.htm"}
 __M_END_METADATA
 """

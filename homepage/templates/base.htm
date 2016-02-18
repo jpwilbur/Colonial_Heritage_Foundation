@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.7/font-awesome-animation.css">
     <link rel="icon" href="${STATIC_URL}homepage/media/CHF.ico">
     <script src="${STATIC_URL}homepage/media/moment.min.js"></script>
-    <script src="${STATIC_URL}homepage/media/bootstrap-datetimepicker.min.js"></script>    
+    <script src="${STATIC_URL}homepage/media/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="${STATIC_URL}homepage/media/bootstrap-datetimepicker.min.css">
 
     ## render the css with the same name as this page
@@ -40,9 +40,11 @@
       <%block name="header">
       </%block>
       ## header block
+
       <%block name="alert_message">
       </%block>
       ## block for fixed alert message
+
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center">
@@ -50,6 +52,7 @@
                 <%block name="above_columns">
                 </%block>
                 ## block for area above right, left and center columns
+
               </h1>
             </div>
           </div>
@@ -58,6 +61,13 @@
               <%block name="left_content">
               </%block>
               ## block for left content
+
+            </div>
+
+            <div class=" col-md-8">
+              <%block name="full_content">
+              </%block>
+              ## block for full content MUST BE USED ON ITS OWN
             </div>
 
             <div class=" col-md-8">
@@ -73,6 +83,28 @@
             </div>
           </div>
         </div>
+        ##div for non-fluid container
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h1>
+                <%block name="above_content">
+                </%block>
+                ## block for area above right, left and center columns
+              </h1>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class=" col-md-12">
+              <%block name="full_length_content">
+              </%block>
+              ## block for full content MUST BE USED ON ITS OWN
+            </div>
+          </div>
+        </div>
+
         <div class="container">
           <hr/>
           <%block name="footer">

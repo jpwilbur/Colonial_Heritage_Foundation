@@ -12,7 +12,7 @@ from Account.models import User
 def process_request(request):
 
     if request.user.is_authenticated():
-        return HttpResponseRedirect('/Account/index')
+        return HttpResponseRedirect('/Account/accountinfo')
 
     form = login_form()
     if request.method == "POST":

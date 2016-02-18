@@ -1,0 +1,147 @@
+<%inherit file="app_base.htm"/>
+
+<%block name="above_content">
+  <h3>All Products</h3>
+</%block>
+
+<%block name="full_length_content">
+  <p class="text-right"><a id="createproductlink" class="btn btn-primary">Create product</a></p>
+  ###### if statement used to seperate the different categories of products into seperate tables
+
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" href=#collapse1>
+          <h4 class="panel-title">
+            Individual Products
+          </h4>
+        </a>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Replacement Value</th>
+              <th>Photo</th>
+              <th>Size</th>
+              <th>Weight</th>
+              <th>Creation Date</th>
+              <th>Customization Notes</th>
+              <th>Action</th>
+            </tr>
+            % for product in indproducts:
+              <tr>
+                <td> ${product.id} </td>
+                <td> ${product.name} </td>
+                <td> ${product.description} </td>
+                <td> ${product.replacementValue} </td>
+                <td> ${product.photoFileName} </td>
+                <td> ${product.size} </td>
+                <td> ${product.weight} </td>
+                <td> ${product.creationDate} </td>
+                <td> ${product.customizationNotes} </td>
+                <td>
+                  <a data-pid = ${ product.id } data-ptype = 'indproduct' data-toggle="modal" class="editproductlink">Edit</a> |
+                  <a data-pid = ${ product.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
+                </td>
+              </tr>
+            % endfor
+          </table>
+          </div>
+      </div>
+  </div>
+
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" href=#collapse2>
+          <h4 class="panel-title">
+            Bulk Products
+          </h4>
+        </a>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Replacement Value</th>
+              <th>Photo</th>
+              <th>Size</th>
+              <th>Weight</th>
+              <th>Current Bulk Price</th>
+              <th>Quantity Available</th>
+              <th>Action</th>
+            </tr>
+            % for product in bulkproducts:
+              <tr>
+                <td> ${product.id} </td>
+                <td> ${product.name} </td>
+                <td> ${product.description} </td>
+                <td> ${product.replacementValue} </td>
+                <td> ${product.photoFileName} </td>
+                <td> ${product.size} </td>
+                <td> ${product.weight} </td>
+                <td> ${product.currentBulkPrice} </td>
+                <td> ${product.quantityAvailable} </td>
+                <td>
+                  <a data-pid = ${ product.id } data-ptype = 'bulkproduct' data-toggle="modal" class="editproductlink">Edit</a> |
+                  <a data-pid = ${ product.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
+                </td>
+              </tr>
+            % endfor
+          </table>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" href=#collapse3>
+          <h4 class="panel-title">
+              Rentable Products
+          </h4>
+        </a>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Replacement Value</th>
+              <th>Photo</th>
+              <th>Size</th>
+              <th>Weight</th>
+              <th>Current Rental Rate</th>
+              <th>Available?</th>
+              <th>Action</th>
+            </tr>
+            % for product in rentproducts:
+              <tr>
+                <td> ${product.id} </td>
+                <td> ${product.name} </td>
+                <td> ${product.description} </td>
+                <td> ${product.replacementValue} </td>
+                <td> ${product.photoFileName} </td>
+                <td> ${product.size} </td>
+                <td> ${product.weight} </td>
+                <td> ${product.currentRentalRate} </td>
+                <td> ${product.available} </td>
+                <td>
+                  <a data-pid = ${ product.id } data-ptype = 'rentalproduct' data-toggle="modal" class="editproductlink">Edit</a> |
+                  <a data-pid = ${ product.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
+                </td>
+              </tr>
+            % endfor
+          </table>
+          </div>
+      </div>
+  </div>
+
+</%block>

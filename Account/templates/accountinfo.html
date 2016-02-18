@@ -31,7 +31,7 @@
         </dd>
 
         <dt>
-            Last Name
+            Last Name:
         </dt>
 
         <dd>
@@ -39,19 +39,35 @@
         </dd>
 
         <dt>
-            Address 1
+            Address:
         </dt>
 
         <dd>
-            ${request.user.address1}
+            ${request.user.address}
         </dd>
 
         <dt>
-            Address 2
+            City:
         </dt>
 
         <dd>
-            ${request.user.address2}
+            ${request.user.city}
+        </dd>
+
+        <dt>
+            State:
+        </dt>
+
+        <dd>
+            ${request.user.state}
+        </dd>
+
+        <dt>
+            Zip Code:
+        </dt>
+
+        <dd>
+            ${request.user.zipcode}
         </dd>
 
         <dt>
@@ -67,7 +83,31 @@
         </dt>
 
         <dd>
-            ${request.user.phone_number}
+            ${request.user.phoneNumber}
+        </dd>
+
+        <dt>
+            Last Four Digits of Credit Card:
+        </dt>
+
+        <dd>
+            ${request.user.ccDigits}
+        </dd>
+
+        <dt>
+            Credit Card Expiration:
+        </dt>
+
+        <dd>
+            ${request.user.ccExpiration}
+        </dd>
+
+        <dt>
+            Credit Card CVC:
+        </dt>
+
+        <dd>
+            ${request.user.ccCVC}
         </dd>
     </dl>
   </div>

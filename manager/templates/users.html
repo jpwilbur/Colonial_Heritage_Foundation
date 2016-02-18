@@ -1,36 +1,64 @@
 <%inherit file="app_base.htm"/>
 
-<%block name="above_columns">
+<%block name="above_content">
   <h3>All Users</h3>
 </%block>
 
-<%block name="center_content">
+<%block name="full_length_content">
   <p class="text-right"><a id="createuserlink" class="btn btn-primary">Create User</a></p>
 
   <table class="table table-striped">
     <tr>
-      <th>Username:</th>
-      <th>First Name:</th>
-      <th>Last Name:</th>
-      <th>Email:</th>
+      <th>Username</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+      <th>Birth Date</th>
+      <th>Phone Number</th>
+      <th>Last four Credit Card Digits</th>
+      <th>Credit Card Expiration</th>
+      <th>Credit Card CVC</th>
       <th>Groups:</th>
       <th>Actions:</th>
-      <th></th>
-      <th></th>
     </tr>
 
     % for user in users:
       <tr>
-        <td> ${ user.username} </td>
-        <td> ${ user.first_name}</td>
-        <td> ${ user.last_name} </td>
-        <td> ${ user.email} </td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td> ${user.username} </td>
+        <td> ${user.first_name} </td>
+        <td> ${user.last_name} </td>
+        <td> ${user.email} </td>
+        <td> ${user.address} </td>
+        <td> ${user.city} </td>
+        <td> ${user.state} </td>
+        <td> ${user.zipcode} </td>
+        <td> ${user.birth} </td>
+        <td> ${user.phoneNumber} </td>
+        <td> ${user.ccDigits} </td>
+        <td> ${user.ccExpiration} </td>
+        <td> ${user.ccCVC} </td>
+        <%
+          groups = user.groups.all()
+        %>
         <td>
-          <a data-pid= ${ user.id } data-toggle="modal" class="edituserlink">Edit</a> |
-          <a data-pid= ${ user.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
+          <ul class="nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Groups<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                % for group in groups:
+                  <li>${group}</li>
+                % endfor
+              </ul>
+            </li>
+          </ul>
+        </td>
+        <td>
+          <a data-pid = ${ user.id } data-toggle="modal" class="edituserlink">Edit</a> |
+          <a data-pid = ${ user.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
         </td>
       </tr>
     % endfor
