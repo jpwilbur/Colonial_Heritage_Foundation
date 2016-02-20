@@ -1,0 +1,11 @@
+<%inherit file="/homepage/templates/base_ajax.htm"/>
+
+<%block name="center_content">
+  <form id="editareaform" action="/catalog/venues.editarea/${areaid}/" method="POST">
+    <table class="table table-striped">
+      ${form}
+    </table>
+    <input class="btn btn-success" type="submit" value="Save Changes">
+    <a class="btn btn-default" href="/catalog/areas">Back</a>
+  </form>
+</%block>

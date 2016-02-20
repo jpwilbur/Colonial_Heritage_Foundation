@@ -162,7 +162,7 @@ for i in range(1, 5):
   v.address = 'Venue Name%i address' % i
   v.city = 'City%i' % i
   v.state = 'State%i' % i
-  v.zipcode = '%i0000'
+  v.zipcode = '%i0000' % i
   v.phoneNumber = '(555) 555-000%i' % i
   v.contactName = 'The Gove%i' % i
   v.save()
@@ -176,6 +176,7 @@ for i in range (1, 5):
   e.eventName = 'Event Name%i' % i
   e.startDate = datetime.datetime.now()
   e.endDate = datetime.datetime.now()
+  e.venue = random.choice(venues)
   e.save()
   print(e)
 

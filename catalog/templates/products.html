@@ -86,12 +86,15 @@
                 <td> ${product.size} </td>
                 <td> ${product.weight} </td>
                 <td> ${product.currentBulkPrice} </td>
-                <td> ${product.quantityAvailable} </td>
+                ## ${product.quantityAvailable}
+                ##% if isinstance (product, cmod.BulkProduct):
+                  <td><span class="quantityAvailable${product.id}"> 1000 </span> <button data-di="${product.id}" class="btn btn-default" id="updateQty">Update</button></td>
+                ##% endif
                 <td>
                   <a data-pid = ${ product.id } data-ptype = 'bulkproduct' data-toggle="modal" class="editproductlink">Edit</a> |
                   <a data-pid = ${ product.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
                 </td>
-              </tr>
+                </tr>
             % endfor
           </table>
           </div>

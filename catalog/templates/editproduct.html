@@ -1,7 +1,7 @@
 <%inherit file="/homepage/templates/base_ajax.htm"/>
 
 <%block name="center_content">
-  <form id="editproductform" action="/catalog/product.edit/${productid}" method="POST">
+  <form id="editproductform" action="/catalog/products.edit/${productid}/${ptype}" method="POST">
     <table id='editProductTable' class="table table-striped" data-ptype="${ ptype }">
       ${form}
     </table>

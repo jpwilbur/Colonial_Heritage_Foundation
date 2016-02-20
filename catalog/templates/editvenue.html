@@ -1,0 +1,42 @@
+<%inherit file="/homepage/templates/base_ajax.htm"/>
+
+<%block name="center_content">
+  <form id="editvenueform" action="/catalog/venues.edit/${venueid}" method="POST">
+    <table class="table table-striped">
+      ${form}
+    </table>
+    <input class="btn btn-success" type="submit" value="Save Changes">
+    <a class="btn btn-default" href="/catalog/venues">Back</a>
+  </form>
+  <br/>
+  <br/>
+  <table class="table table-striped">
+    <tr>
+      <th>Area Name</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Venue</th>
+      <th>Actions</th>
+    </tr>
+
+    % for area in areas:
+      <tr>
+        <td> ${area.areaName} </td>
+        <td> ${area.location} </td>
+        <td> ${area.description} </td>
+        <td> ${area.venue.venueName} </td>
+        <td>
+          <a data-aid = ${ area.id } data-toggle="modal" class="editarealink">Edit</a> |
+          <a data-aid = ${ area.id } data-toggle="modal" class="delete_button deletearealink">Delete</a>
+        </td>
+      </tr>
+    % endfor
+    % if areas.count() < 1:
+      <div class="text-center">
+        <h3>No areas assigned to this venue. Please click the link below to add one.</h3>
+    % endif
+  </table>
+
+  <div class="text-right"><a id="createarealink" data-vid = ${ venueid } class="btn btn-primary">Create Area</a></p></div>
+
+</%block>

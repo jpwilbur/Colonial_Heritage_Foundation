@@ -5,13 +5,13 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1455678159.799177
+_modified_time = 1455903444.5890362
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/app_base.htm'
 _template_uri = 'app_base.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
-_exports = ['alert_message', 'maintenance_message', 'left_content', 'footer', 'above_columns', 'header', 'center_content', 'account_dropdown', 'right_content', 'title']
+_exports = ['above_columns', 'left_content', 'footer', 'header', 'maintenance_message', 'title', 'alert_message', 'right_content', 'account_dropdown', 'center_content']
 
 
 def _mako_get_namespace(context, name):
@@ -29,27 +29,27 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        def header():
+            return render_header(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def account_dropdown():
+            return render_account_dropdown(context._locals(__M_locals))
+        def above_columns():
+            return render_above_columns(context._locals(__M_locals))
+        def footer():
+            return render_footer(context._locals(__M_locals))
+        def maintenance_message():
+            return render_maintenance_message(context._locals(__M_locals))
         def alert_message():
             return render_alert_message(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
         def center_content():
             return render_center_content(context._locals(__M_locals))
-        def above_columns():
-            return render_above_columns(context._locals(__M_locals))
-        def header():
-            return render_header(context._locals(__M_locals))
-        def account_dropdown():
-            return render_account_dropdown(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
-        def maintenance_message():
-            return render_maintenance_message(context._locals(__M_locals))
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        def footer():
-            return render_footer(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -110,28 +110,13 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_alert_message(context,**pageargs):
+def render_above_columns(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def alert_message():
-            return render_alert_message(context)
+        def above_columns():
+            return render_above_columns(context)
         __M_writer = context.writer()
-        __M_writer('\r\n  <div class="row">\r\n    <div class="col-md-2" id="alert">\r\n      <div class="alert alert-danger alert-dismissible" role="alert">\r\n        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\r\n        <strong>Warning!</strong> This is a warning. You have been warned.\r\n      </div>\r\n    </div>\r\n  </div>\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_maintenance_message(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def maintenance_message():
-            return render_maintenance_message(context)
-        request = context.get('request', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\r\n  <div class="alert alert-warning" role="alert">\r\n    <div class="text-center">\r\n      <strong>')
-        __M_writer(str(request.user.first_name + ' ' + request.user.last_name + ',' if request.user.is_authenticated() else ''))
-        __M_writer('Ye Be warned!</strong> This site is currently under construction.\r\n    </div>\r\n  </div>\r\n')
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -170,32 +155,23 @@ def render_footer(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_above_columns(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def above_columns():
-            return render_above_columns(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_header(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def account_dropdown():
-            return render_account_dropdown(context)
+        request = context.get('request', UNDEFINED)
         def header():
             return render_header(context)
-        request = context.get('request', UNDEFINED)
+        def account_dropdown():
+            return render_account_dropdown(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
 
+  ## Display name, view name, app name
         menu_tabs = [
           [ "Users",   "users" , "manager"    ],
           [ "Products",   "products" , "catalog"    ],
+          [ "Venues",   "venues" , "catalog"    ],
+          [ "Events",   "events" , "catalog"    ],
         ]
         
         
@@ -222,43 +198,16 @@ def render_header(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_center_content(context,**pageargs):
+def render_maintenance_message(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def center_content():
-            return render_center_content(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_account_dropdown(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def account_dropdown():
-            return render_account_dropdown(context)
         request = context.get('request', UNDEFINED)
+        def maintenance_message():
+            return render_maintenance_message(context)
         __M_writer = context.writer()
-        __M_writer('\r\n')
-        if not request.user.is_authenticated():
-            __M_writer('                    <ul class="nav navbar-nav navbar-right">\r\n                      <li class="dropdown">\r\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                        <ul class="dropdown-menu">\r\n                          <li><a href="/Account/signup">Sign up</a></li>\r\n                          <li><a id="loginlink" class="a">Log in</a></li>\r\n                        </ul>\r\n                      </li>\r\n                    </ul>\r\n')
-        else:
-            __M_writer('                    <ul class="nav navbar-nav navbar-right">\r\n                      <li class="dropdown">\r\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                        <ul class="dropdown-menu">\r\n                          <li><a href="#">Account info</a></li>\r\n                          <li><a href="/Account/logout">Logout</a></li>\r\n                        </ul>\r\n                      </li>\r\n                    </ul>\r\n')
-        __M_writer('                ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_right_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def right_content():
-            return render_right_content(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
+        __M_writer('\r\n  <div class="alert alert-warning" role="alert">\r\n    <div class="text-center">\r\n      <strong>')
+        __M_writer(str(request.user.first_name + ' ' + request.user.last_name + ',' if request.user.is_authenticated() else ''))
+        __M_writer('Ye Be warned!</strong> This site is currently under construction.\r\n    </div>\r\n  </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -276,8 +225,62 @@ def render_title(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_alert_message(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def alert_message():
+            return render_alert_message(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n  <div class="row">\r\n    <div class="col-md-2" id="alert">\r\n      <div class="alert alert-danger alert-dismissible" role="alert">\r\n        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\r\n        <strong>Warning!</strong> This is a warning. You have been warned.\r\n      </div>\r\n    </div>\r\n  </div>\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_right_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def right_content():
+            return render_right_content(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_account_dropdown(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        request = context.get('request', UNDEFINED)
+        def account_dropdown():
+            return render_account_dropdown(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        if not request.user.is_authenticated():
+            __M_writer('                    <ul class="nav navbar-nav navbar-right">\r\n                      <li class="dropdown">\r\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                        <ul class="dropdown-menu">\r\n                          <li><a href="/Account/signup">Sign up</a></li>\r\n                          <li><a id="loginlink" class="a">Log in</a></li>\r\n                        </ul>\r\n                      </li>\r\n                    </ul>\r\n')
+        else:
+            __M_writer('                    <ul class="nav navbar-nav navbar-right">\r\n                      <li class="dropdown">\r\n                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>\r\n                        <ul class="dropdown-menu">\r\n                          <li><a href="#">Account info</a></li>\r\n                          <li><a href="/Account/logout">Logout</a></li>\r\n                        </ul>\r\n                      </li>\r\n                    </ul>\r\n')
+        __M_writer('                ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_center_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def center_content():
+            return render_center_content(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"132": 9, "133": 12, "134": 12, "267": 3, "140": 138, "194": 20, "273": 3, "146": 138, "279": 273, "152": 150, "28": 0, "218": 66, "158": 150, "159": 153, "160": 153, "219": 115, "261": 146, "165": 156, "166": 157, "167": 157, "173": 133, "179": 133, "54": 1, "185": 20, "59": 5, "60": 7, "65": 15, "66": 17, "195": 21, "71": 116, "72": 118, "202": 26, "203": 40, "204": 41, "77": 129, "78": 131, "205": 41, "208": 41, "209": 41, "210": 41, "83": 134, "84": 136, "206": 41, "249": 66, "89": 139, "90": 141, "207": 41, "95": 143, "96": 145, "225": 142, "101": 147, "102": 149, "231": 142, "107": 159, "237": 44, "113": 120, "211": 41, "244": 44, "245": 45, "246": 46, "119": 120, "248": 56, "212": 41, "255": 146, "247": 55, "125": 9, "213": 43}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/app_base.htm"}
+{"uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"131": 141, "260": 48, "261": 49, "262": 58, "263": 59, "264": 69, "137": 153, "194": 69, "270": 145, "143": 153, "144": 156, "145": 156, "259": 47, "276": 145, "150": 159, "151": 160, "152": 160, "282": 276, "28": 0, "158": 20, "167": 20, "168": 21, "178": 29, "179": 43, "180": 44, "181": 44, "182": 44, "183": 44, "184": 44, "185": 44, "186": 44, "187": 44, "60": 7, "189": 46, "65": 15, "66": 17, "195": 118, "54": 1, "71": 119, "72": 121, "201": 9, "77": 132, "78": 134, "208": 9, "209": 12, "210": 12, "83": 137, "84": 139, "216": 3, "89": 142, "90": 144, "222": 3, "95": 146, "96": 148, "59": 5, "228": 123, "101": 150, "102": 152, "188": 44, "234": 123, "107": 162, "240": 149, "113": 136, "246": 149, "119": 136, "252": 47, "125": 141}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/app_base.htm"}
 __M_END_METADATA
 """

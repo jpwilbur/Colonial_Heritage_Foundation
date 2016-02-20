@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1455747970.425349
+_modified_time = 1455769137.1533306
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/editproduct.html'
 _template_uri = 'editproduct.html'
@@ -29,10 +29,10 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        ptype = context.get('ptype', UNDEFINED)
+        productid = context.get('productid', UNDEFINED)
         def center_content():
             return render_center_content(context._locals(__M_locals))
-        productid = context.get('productid', UNDEFINED)
-        ptype = context.get('ptype', UNDEFINED)
         form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
@@ -49,14 +49,16 @@ def render_body(context,**pageargs):
 def render_center_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        ptype = context.get('ptype', UNDEFINED)
+        productid = context.get('productid', UNDEFINED)
         def center_content():
             return render_center_content(context)
-        productid = context.get('productid', UNDEFINED)
-        ptype = context.get('ptype', UNDEFINED)
         form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n  <form id="editproductform" action="/catalog/product.edit/')
+        __M_writer('\r\n  <form id="editproductform" action="/catalog/products.edit/')
         __M_writer(str(productid))
+        __M_writer('/')
+        __M_writer(str(ptype))
         __M_writer('" method="POST">\r\n    <table id=\'editProductTable\' class="table table-striped" data-ptype="')
         __M_writer(str( ptype ))
         __M_writer('">\r\n      ')
@@ -69,6 +71,6 @@ def render_center_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 6, "70": 64, "38": 1, "28": 0, "43": 11, "49": 3, "58": 3, "59": 4, "60": 4, "61": 5, "62": 5, "63": 6}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/editproduct.html", "uri": "editproduct.html", "source_encoding": "utf-8"}
+{"uri": "editproduct.html", "source_encoding": "utf-8", "line_map": {"64": 5, "65": 6, "66": 6, "38": 1, "72": 66, "28": 0, "43": 11, "49": 3, "58": 3, "59": 4, "60": 4, "61": 4, "62": 4, "63": 5}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/catalog/templates/editproduct.html"}
 __M_END_METADATA
 """

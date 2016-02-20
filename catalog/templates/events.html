@@ -1,0 +1,32 @@
+<%inherit file="app_base.htm"/>
+
+<%block name="above_content">
+  <h3>All Events</h3>
+</%block>
+
+<%block name="full_length_content">
+  <p class="text-right"><a id="createeventlink" class="btn btn-primary">Create Event</a></p>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Event Name</th>
+      <th>Event Start Date</th>
+      <th>Event End Date</th>
+      <th>Venue</th>
+      <th>Actions</th>
+    </tr>
+
+    % for event in events:
+      <tr>
+        <td> ${event.eventName} </td>
+        <td> ${event.startDate} </td>
+        <td> ${event.endDate} </td>
+        <td> ${event.venue.venueName} </td>
+        <td>
+          <a data-eid = ${ event.id } data-toggle="modal" class="editeventlink">Edit</a> |
+          <a data-eid = ${ event.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
+        </td>
+      </tr>
+    % endfor
+  </table>
+</%block>

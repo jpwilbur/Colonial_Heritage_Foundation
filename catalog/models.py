@@ -49,7 +49,7 @@ class Venue(PolymorphicModel):
     address = models.TextField()
     city = models.TextField()
     state = models.TextField()
-    codezip = models.TextField()
+    zipcode = models.TextField()
     phoneNumber = models.TextField()
     contactName = models.TextField()
 

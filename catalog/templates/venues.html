@@ -1,0 +1,38 @@
+<%inherit file="app_base.htm"/>
+
+<%block name="above_content">
+  <h3>All Venues</h3>
+</%block>
+
+<%block name="full_length_content">
+  <p class="text-right"><a id="createvenuelink" class="btn btn-primary">Create Venue</a></p>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Venue Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+      <th>Phone Number</th>
+      <th>Contact Name</th>
+      <th>Actions</th>
+    </tr>
+
+    % for venue in venues:
+      <tr>
+        <td> ${venue.venueName} </td>
+        <td> ${venue.address} </td>
+        <td> ${venue.city} </td>
+        <td> ${venue.state} </td>
+        <td> ${venue.zipcode} </td>
+        <td> ${venue.phoneNumber} </td>
+        <td> ${venue.contactName} </td>
+        <td>
+          <a data-vid = ${ venue.id } data-toggle="modal" class="editvenuelink">Edit</a> |
+          <a data-vid = ${ venue.id } data-toggle="modal" class="delete_button deletelink">Delete</a>
+        </td>
+      </tr>
+    % endfor
+  </table>
+</%block>

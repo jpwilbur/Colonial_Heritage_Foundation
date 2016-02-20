@@ -36,3 +36,23 @@ $(function () {
         });
   });// click
 }); // ready
+
+$(document).ready(function(){
+
+	$(document).on('click', '#updateQty', function (event) {
+		var btn = $(this);
+		var btnId = $( this ).attr('data-di') ;
+		var urlSend = "/catalog/ajax/"+btnId+"/";
+		$(".quantityAvailable"+btnId).load(urlSend);
+		$.ajax({
+			type : "GET",
+			url : urlSend,
+			success : function(data) {
+					$(".quantityAvailable"+btnId).html(data[0]);
+			},
+		});
+		console.log(urlSend);
+		return false;
+	});
+
+});

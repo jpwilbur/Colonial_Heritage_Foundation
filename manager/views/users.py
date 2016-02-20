@@ -10,8 +10,8 @@ from bootstrap3_datetime.widgets import DateTimePicker
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-@login_required
-@user_passes_test(lambda u: u.has_perm('Can add user'), login_url='/Account/login/')
+# @login_required
+# @user_passes_test(lambda u: u.has_perm('Can add user'), login_url='/Account/login/')
 @view_function
 def process_request(request):
      users = amod.User.objects.all().order_by('last_name','first_name')
@@ -62,6 +62,7 @@ def edit(request):
             u.ccExpiration = form.cleaned_data.get('ccExpiration')
             u.ccCVC = form.cleaned_data.get('ccCVC')
             u.save()
+            u.groups.clear()
             g = Group.objects.get(name=form.cleaned_data.get('group'))
             u.groups.add(g)
             u.save()

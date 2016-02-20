@@ -1,0 +1,11 @@
+<%inherit file="/homepage/templates/base_ajax.htm"/>
+
+<%block name="center_content">
+  <form id="editeventform" action="/catalog/events.edit/${eventid}" method="POST">
+    <table class="table table-striped">      
+      ${form}
+    </table>
+    <input class="btn btn-success" type="submit" value="Save Changes">
+    <a class="btn btn-default" href="/catalog/events">Back</a>
+  </form>
+</%block>
