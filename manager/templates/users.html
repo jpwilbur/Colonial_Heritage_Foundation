@@ -23,6 +23,7 @@
       <th>Credit Card Expiration</th>
       <th>Credit Card CVC</th>
       <th>Groups:</th>
+      <th>Permissions:</th>
       <th>Actions:</th>
     </tr>
 
@@ -51,6 +52,21 @@
               <ul class="dropdown-menu">
                 % for group in groups:
                   <li>${group}</li>
+                % endfor
+              </ul>
+            </li>
+          </ul>
+        </td>
+        <%
+          permissions = user.user_permissions.all()
+        %>
+        <td>
+          <ul class="nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Permissions<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                % for p in permissions:
+                  <li>${p.name}</li>
                 % endfor
               </ul>
             </li>

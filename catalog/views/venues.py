@@ -11,8 +11,8 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.forms import ModelChoiceField
 
-# @login_required
-# @user_passes_test(lambda u: u.has_perm('Can add user'), login_url='/Account/login/')
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add venue'))
 @view_function
 def process_request(request):
      venues = cmod.Venue.objects.all().order_by('venueName')
@@ -21,6 +21,8 @@ def process_request(request):
      }
      return dmp_render_to_response(request, 'venues.html', template_vars)
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can change venue'))
 @view_function
 def edit(request):
     try:
@@ -74,13 +76,16 @@ class edit_form(forms.Form):
     phoneNumber = forms.CharField(label='Phone Number:', required=True, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Phone Number'}))
     contactName = forms.CharField(label='Contact Name:', required=True, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Contact Name'}))
 
-
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can delete venue'))
 @view_function
 def delete(request):
     v = cmod.Venue.objects.get(id=int(request.urlparams[0]))
     v.delete()
     return HttpResponseRedirect('/catalog/venues')
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add venue'))
 @view_function
 def create (request):
     form = createvenue_form()
@@ -118,7 +123,8 @@ class createvenue_form(forms.Form):
 ###############################
 ##########AREA#################
 ###############################
-
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add area'))
 @view_function
 def createarea (request):
     form = createarea_form()
@@ -148,13 +154,16 @@ class createarea_form(forms.Form):
     location = forms.CharField(label='Location:', required=True, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Location'}))
     description = forms.CharField(label='Description:', required=True, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Description'}))
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can delete area'))
 @view_function
 def deletearea(request):
     a = cmod.Area.objects.get(id=int(request.urlparams[0]))
     a.delete()
     return HttpResponseRedirect('/catalog/venues')
 
-
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can change area'))
 @view_function
 def editarea (request):
     try:

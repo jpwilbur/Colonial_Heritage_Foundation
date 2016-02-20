@@ -1,0 +1,11 @@
+<%inherit file="app_base.htm"/>
+
+
+<%block name="center_content">
+  <form id="loginform" action="/Account/loginredirect" method="post">
+    <table class="table table-striped">
+      ${form}
+    </table>
+    <input class="btn btn-success" type="submit" value="Log in">
+  </form>
+</%block>

@@ -11,8 +11,8 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.forms import ModelChoiceField
 
-# @login_required
-# @user_passes_test(lambda u: u.has_perm('Can add user'), login_url='/Account/login/')
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add event'))
 @view_function
 def process_request(request):
      events = cmod.Event.objects.all().order_by('eventName')
@@ -21,6 +21,8 @@ def process_request(request):
      }
      return dmp_render_to_response(request, 'events.html', template_vars)
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can change event'))
 @view_function
 def edit(request):
 
@@ -72,12 +74,16 @@ class edit_form(forms.Form):
     endDate = forms.DateField(label='End Date:', required=True,input_formats=['%Y-%m-%d'],widget=DateTimePicker(attrs={'placeholder': 'YYYY-MM-DD'},options={"format": "YYYY-MM-DD","pickTime": False}))
     venue = VenueModelChoiceField(label='Venue:', required=True, queryset=cmod.Venue.objects.all(),to_field_name="id",widget=forms.Select(attrs={'class':'form-control'}))
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can delete event'))
 @view_function
 def delete(request):
     e = cmod.Event.objects.get(id=int(request.urlparams[0]))
     e.delete()
     return HttpResponseRedirect('/catalog/events')
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add event'))
 @view_function
 def create (request):
     form = createevent_form()

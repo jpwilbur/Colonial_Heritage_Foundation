@@ -11,8 +11,8 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 from bootstrap3_datetime.widgets import DateTimePicker
 
-# @login_required
-# @user_passes_test(lambda u: u.has_perm('Can add product'), login_url='/homepage/index/')
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add product'))
 @view_function
 def process_request(request):
      indproducts = cmod.IndividualProduct.objects.all().order_by('name')
@@ -25,6 +25,8 @@ def process_request(request):
      }
      return dmp_render_to_response(request, 'products.html', template_vars)
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can change product'))
 @view_function
 def edit(request):
 
@@ -124,6 +126,8 @@ class edit_form(forms.Form):
     available = forms.CharField(label='Available?:', required=False, max_length=30,widget=forms.TextInput(attrs={'id':'available','class':'form-control','placeholder': 'Available'}))
 
 #function to delete user from the system
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can delete product'))
 @view_function
 def delete(request):
     # if request.user.is_authenticated():
@@ -132,7 +136,8 @@ def delete(request):
     u.delete()
     return HttpResponseRedirect('/catalog/products')
 
-
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add product'))
 @view_function
 def create (request):
     form = createproduct_form()

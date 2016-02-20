@@ -105,11 +105,14 @@ print('Creating products...')
 #p = cmod.Product()
 
 # rental items
+cmod.IndividualProduct.objects.all().delete()
+cmod.BulkProduct.objects.all().delete()
+cmod.RentalProduct.objects.all().delete()
 cmod.Product.objects.all().delete()
 
 
 # individual products
-cmod.IndividualProduct.objects.all().delete()
+
 for i in range(1, 5):
   p = cmod.IndividualProduct()
   p.name = 'IndividualProduct%i' % i
@@ -124,7 +127,7 @@ for i in range(1, 5):
   print(p)
 
 # bulk products
-cmod.BulkProduct.objects.all().delete()
+
 for i in range(1, 5):
   p = cmod.BulkProduct()
   p.name = 'BulkProduct%i' % i
@@ -139,7 +142,7 @@ for i in range(1, 5):
   print(p)
 
 # Rental Products
-cmod.RentalProduct.objects.all().delete()
+
 for i in range(1, 5):
   p = cmod.RentalProduct()
   p.name = 'RentalProduct%i' % i

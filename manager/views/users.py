@@ -7,11 +7,11 @@ from django_mako_plus.controller.router import get_renderer
 from django import forms
 import  Account.models as amod
 from bootstrap3_datetime.widgets import DateTimePicker
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, Permission
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-# @login_required
-# @user_passes_test(lambda u: u.has_perm('Can add user'), login_url='/Account/login/')
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add user'))
 @view_function
 def process_request(request):
      users = amod.User.objects.all().order_by('last_name','first_name')
@@ -20,6 +20,8 @@ def process_request(request):
      }
      return dmp_render_to_response(request, 'users.html', template_vars)
 
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can change user'))
 @view_function
 def edit(request):
 
@@ -66,6 +68,10 @@ def edit(request):
             g = Group.objects.get(name=form.cleaned_data.get('group'))
             u.groups.add(g)
             u.save()
+            permissions = form.cleaned_data.get('permissions')
+            for p in permissions:
+                u.user_permissions.add(p)
+            u.save()
             return HttpResponse('''
             <script>
                 window.location.reload();
@@ -98,6 +104,7 @@ class edit_form(forms.Form):
     ccExpiration = forms.CharField(label='Credit Card Expiration:', required=False, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Credit Card Expiration'}))
     ccCVC = forms.CharField(label='Credit Card CVC:', required=False, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Credit Card CVC'}))
     group = forms.ModelChoiceField(label='Group:', required=True,queryset=Group.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
+    permissions = forms.ModelMultipleChoiceField(label='Individual Permissions',required=False,queryset=Permission.objects.all(),widget=forms.CheckboxSelectMultiple())
 
     def clean_username (self):
         if amod.User.objects.filter(username=self.cleaned_data.get('username')).exclude(id=self.userid).count() > 0:
@@ -105,6 +112,8 @@ class edit_form(forms.Form):
         return self.cleaned_data['username']
 
 #function to change user password
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can change user'))
 @view_function
 def changepassword(request):
 
@@ -139,6 +148,8 @@ class changepassword_form(forms.Form):
         return self.cleaned_data
 
 #function to delete user from the system
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can delete user'))
 @view_function
 def delete(request):
     # if request.user.is_authenticated():
@@ -147,7 +158,8 @@ def delete(request):
     u.delete()
     return HttpResponseRedirect('/manager/users')
 
-
+@login_required
+@user_passes_test(lambda u: u.has_perm('Can add user'))
 @view_function
 def create (request):
     form = createuser_form()
@@ -172,6 +184,10 @@ def create (request):
             u.save()
             g = Group.objects.get(name=form.cleaned_data.get('group'))
             u.groups.add(g)
+            u.save()
+            permissions = form.cleaned_data.get('permissions')
+            for p in permissions:
+                u.user_permissions.add(p)
             u.save()
             return HttpResponse('''
             <script>
@@ -199,6 +215,7 @@ class createuser_form(forms.Form):
     ccExpiration = forms.CharField(label='Credit Card Expiration:', required=False, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Credit Card Expiration'}))
     ccCVC = forms.CharField(label='Credit Card CVC:', required=False, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Credit Card CVC'}))
     group = forms.ModelChoiceField(label='Group:', required=True,queryset=Group.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
+    permissions = forms.ModelMultipleChoiceField(label='Individual Permissions',required=False,queryset=Permission.objects.all(),widget=forms.CheckboxSelectMultiple())
 
     def clean_username (self):
         if amod.User.objects.filter(username=self.cleaned_data.get('username')).count() > 0:

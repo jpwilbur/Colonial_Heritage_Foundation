@@ -5,13 +5,13 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1455661423.730949
+_modified_time = 1455993708.4064558
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/manager/templates/users.html'
 _template_uri = 'users.html'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
-_exports = ['above_content', 'full_length_content']
+_exports = ['full_length_content', 'above_content']
 
 
 def _mako_get_namespace(context, name):
@@ -29,11 +29,11 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        users = context.get('users', UNDEFINED)
-        def above_content():
-            return render_above_content(context._locals(__M_locals))
         def full_length_content():
             return render_full_length_content(context._locals(__M_locals))
+        def above_content():
+            return render_above_content(context._locals(__M_locals))
+        users = context.get('users', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'above_content'):
@@ -51,26 +51,14 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_above_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def above_content():
-            return render_above_content(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n  <h3>All Users</h3>\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_full_length_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        users = context.get('users', UNDEFINED)
         def full_length_content():
             return render_full_length_content(context)
+        users = context.get('users', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n  <p class="text-right"><a id="createuserlink" class="btn btn-primary">Create User</a></p>\r\n\r\n  <table class="table table-striped">\r\n    <tr>\r\n      <th>Username</th>\r\n      <th>First Name</th>\r\n      <th>Last Name</th>\r\n      <th>Email</th>\r\n      <th>Address</th>\r\n      <th>City</th>\r\n      <th>State</th>\r\n      <th>Zipcode</th>\r\n      <th>Birth Date</th>\r\n      <th>Phone Number</th>\r\n      <th>Last four Credit Card Digits</th>\r\n      <th>Credit Card Expiration</th>\r\n      <th>Credit Card CVC</th>\r\n      <th>Groups:</th>\r\n      <th>Actions:</th>\r\n    </tr>\r\n\r\n')
+        __M_writer('\r\n  <p class="text-right"><a id="createuserlink" class="btn btn-primary">Create User</a></p>\r\n\r\n  <table class="table table-striped">\r\n    <tr>\r\n      <th>Username</th>\r\n      <th>First Name</th>\r\n      <th>Last Name</th>\r\n      <th>Email</th>\r\n      <th>Address</th>\r\n      <th>City</th>\r\n      <th>State</th>\r\n      <th>Zipcode</th>\r\n      <th>Birth Date</th>\r\n      <th>Phone Number</th>\r\n      <th>Last four Credit Card Digits</th>\r\n      <th>Credit Card Expiration</th>\r\n      <th>Credit Card CVC</th>\r\n      <th>Groups:</th>\r\n      <th>Permissions:</th>\r\n      <th>Actions:</th>\r\n    </tr>\r\n\r\n')
         for user in users:
             __M_writer('      <tr>\r\n        <td> ')
             __M_writer(str(user.username))
@@ -108,6 +96,16 @@ def render_full_length_content(context,**pageargs):
                 __M_writer('                  <li>')
                 __M_writer(str(group))
                 __M_writer('</li>\r\n')
+            __M_writer('              </ul>\r\n            </li>\r\n          </ul>\r\n        </td>\r\n        ')
+
+            permissions = user.user_permissions.all()
+                    
+            
+            __M_writer('\r\n        <td>\r\n          <ul class="nav">\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Permissions<b class="caret"></b></a>\r\n              <ul class="dropdown-menu">\r\n')
+            for p in permissions:
+                __M_writer('                  <li>')
+                __M_writer(str(p.name))
+                __M_writer('</li>\r\n')
             __M_writer('              </ul>\r\n            </li>\r\n          </ul>\r\n        </td>\r\n        <td>\r\n          <a data-pid = ')
             __M_writer(str( user.id ))
             __M_writer(' data-toggle="modal" class="edituserlink">Edit</a> |\r\n          <a data-pid = ')
@@ -119,8 +117,20 @@ def render_full_length_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_above_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def above_content():
+            return render_above_content(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n  <h3>All Users</h3>\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "users.html", "source_encoding": "utf-8", "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/manager/templates/users.html", "line_map": {"28": 0, "38": 1, "43": 5, "48": 66, "54": 3, "60": 3, "66": 7, "73": 7, "74": 29, "75": 30, "76": 31, "77": 31, "78": 32, "79": 32, "80": 33, "81": 33, "82": 34, "83": 34, "84": 35, "85": 35, "86": 36, "87": 36, "88": 37, "89": 37, "90": 38, "91": 38, "92": 39, "93": 39, "94": 40, "95": 40, "96": 41, "97": 41, "98": 42, "99": 42, "100": 43, "101": 43, "102": 44, "106": 46, "107": 52, "108": 53, "109": 53, "110": 53, "111": 55, "112": 60, "113": 60, "114": 61, "115": 61, "116": 65, "122": 116}}
+{"filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/manager/templates/users.html", "line_map": {"132": 126, "28": 0, "38": 1, "43": 5, "48": 82, "54": 7, "61": 7, "62": 30, "63": 31, "64": 32, "65": 32, "66": 33, "67": 33, "68": 34, "69": 34, "70": 35, "71": 35, "72": 36, "73": 36, "74": 37, "75": 37, "76": 38, "77": 38, "78": 39, "79": 39, "80": 40, "81": 40, "82": 41, "83": 41, "84": 42, "85": 42, "86": 43, "87": 43, "88": 44, "89": 44, "90": 45, "94": 47, "95": 53, "96": 54, "97": 54, "98": 54, "99": 56, "100": 60, "104": 62, "105": 68, "106": 69, "107": 69, "108": 69, "109": 71, "110": 76, "111": 76, "112": 77, "113": 77, "114": 81, "120": 3, "126": 3}, "source_encoding": "utf-8", "uri": "users.html"}
 __M_END_METADATA
 """
