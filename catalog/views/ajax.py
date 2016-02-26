@@ -17,7 +17,7 @@ def process_request(request):
 			q = cmod.Product.objects.get(id=request.urlparams[0])
 		except cmod.Product.DoesNotExist:
 			return HttpResponseRedirect('/catalog/products')
-		qtyData = [q.quantityAvailable]
+		qtyData = q.quantityAvailable
 		data = json.dumps(qtyData)
 		return HttpResponse(data, content_type='application/json')
 	else:

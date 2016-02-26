@@ -5,13 +5,13 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1455602055.682486
+_modified_time = 1456448121.6610794
 _enable_loop = True
 _template_filename = 'C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
-_exports = ['header', 'maintenance_message', 'center_content', 'footer', 'title', 'left_content', 'main_body', 'alert_message', 'above_columns', 'full_length_content', 'full_content', 'above_content', 'right_content']
+_exports = ['left_content', 'full_length_content', 'maintenance_message', 'above_content', 'header', 'title', 'center_content', 'above_columns', 'main_body', 'full_content', 'footer', 'right_content', 'alert_message']
 
 
 from django_mako_plus.controller import static_files 
@@ -20,35 +20,35 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def full_content():
-            return render_full_content(context._locals(__M_locals))
-        def center_content():
-            return render_center_content(context._locals(__M_locals))
-        def footer():
-            return render_footer(context._locals(__M_locals))
-        def main_body():
-            return render_main_body(context._locals(__M_locals))
-        def above_columns():
-            return render_above_columns(context._locals(__M_locals))
-        def full_length_content():
-            return render_full_length_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def header():
-            return render_header(context._locals(__M_locals))
-        def maintenance_message():
-            return render_maintenance_message(context._locals(__M_locals))
-        def alert_message():
-            return render_alert_message(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def full_content():
+            return render_full_content(context._locals(__M_locals))
+        def footer():
+            return render_footer(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
+        def full_length_content():
+            return render_full_length_content(context._locals(__M_locals))
+        def maintenance_message():
+            return render_maintenance_message(context._locals(__M_locals))
         def above_content():
             return render_above_content(context._locals(__M_locals))
+        def header():
+            return render_header(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def center_content():
+            return render_center_content(context._locals(__M_locals))
+        def above_columns():
+            return render_above_columns(context._locals(__M_locals))
+        def main_body():
+            return render_main_body(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        def alert_message():
+            return render_alert_message(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n  ')
         static_renderer = static_files.StaticRenderer(self) 
@@ -97,6 +97,54 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_left_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def left_content():
+            return render_left_content(context)
+        __M_writer = context.writer()
+        __M_writer('\n              ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_full_length_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def full_length_content():
+            return render_full_length_content(context)
+        __M_writer = context.writer()
+        __M_writer('\n              ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_maintenance_message(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def maintenance_message():
+            return render_maintenance_message(context)
+        __M_writer = context.writer()
+        __M_writer('\n      ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_above_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def above_content():
+            return render_above_content(context)
+        __M_writer = context.writer()
+        __M_writer('\n                ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_header(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -109,11 +157,11 @@ def render_header(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_maintenance_message(context,**pageargs):
+def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def maintenance_message():
-            return render_maintenance_message(context)
+        def title():
+            return render_title(context)
         __M_writer = context.writer()
         __M_writer('\n      ')
         return ''
@@ -133,37 +181,13 @@ def render_center_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_footer(context,**pageargs):
+def render_above_columns(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def footer():
-            return render_footer(context)
+        def above_columns():
+            return render_above_columns(context)
         __M_writer = context.writer()
-        __M_writer('\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_title(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def title():
-            return render_title(context)
-        __M_writer = context.writer()
-        __M_writer('\n      ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_left_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def left_content():
-            return render_left_content(context)
-        __M_writer = context.writer()
-        __M_writer('\n              ')
+        __M_writer('\n                ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -172,30 +196,30 @@ def render_left_content(context,**pageargs):
 def render_main_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def header():
-            return render_header(context)
-        def maintenance_message():
-            return render_maintenance_message(context)
-        def full_content():
-            return render_full_content(context)
-        def alert_message():
-            return render_alert_message(context)
-        def center_content():
-            return render_center_content(context)
-        def footer():
-            return render_footer(context)
         def left_content():
             return render_left_content(context)
-        def main_body():
-            return render_main_body(context)
-        def above_columns():
-            return render_above_columns(context)
         def full_length_content():
             return render_full_length_content(context)
+        def maintenance_message():
+            return render_maintenance_message(context)
         def above_content():
             return render_above_content(context)
+        def header():
+            return render_header(context)
+        def center_content():
+            return render_center_content(context)
+        def above_columns():
+            return render_above_columns(context)
+        def main_body():
+            return render_main_body(context)
+        def full_content():
+            return render_full_content(context)
+        def footer():
+            return render_footer(context)
         def right_content():
             return render_right_content(context)
+        def alert_message():
+            return render_alert_message(context)
         __M_writer = context.writer()
         __M_writer('\n    <body>\n      ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'maintenance_message'):
@@ -269,42 +293,6 @@ def render_main_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_alert_message(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def alert_message():
-            return render_alert_message(context)
-        __M_writer = context.writer()
-        __M_writer('\n      ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_above_columns(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def above_columns():
-            return render_above_columns(context)
-        __M_writer = context.writer()
-        __M_writer('\n                ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_full_length_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def full_length_content():
-            return render_full_length_content(context)
-        __M_writer = context.writer()
-        __M_writer('\n              ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_full_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -317,13 +305,13 @@ def render_full_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_above_content(context,**pageargs):
+def render_footer(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def above_content():
-            return render_above_content(context)
+        def footer():
+            return render_footer(context)
         __M_writer = context.writer()
-        __M_writer('\n                ')
+        __M_writer('\n          ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -341,8 +329,20 @@ def render_right_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_alert_message(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def alert_message():
+            return render_alert_message(context)
+        __M_writer = context.writer()
+        __M_writer('\n      ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "base.htm", "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"130": 74, "260": 102, "261": 104, "136": 110, "266": 111, "142": 110, "272": 44, "17": 2, "205": 37, "19": 0, "148": 14, "278": 44, "154": 14, "284": 52, "160": 61, "290": 52, "326": 92, "166": 61, "296": 101, "172": 34, "302": 101, "206": 39, "200": 34, "308": 68, "53": 2, "54": 3, "58": 3, "59": 4, "332": 80, "63": 4, "320": 92, "68": 15, "69": 18, "70": 20, "71": 20, "72": 21, "73": 21, "74": 22, "75": 22, "76": 25, "77": 25, "78": 26, "79": 26, "80": 27, "81": 27, "82": 28, "83": 28, "84": 31, "85": 31, "86": 31, "249": 87, "344": 338, "217": 45, "218": 47, "91": 114, "92": 117, "93": 117, "94": 117, "223": 53, "224": 55, "100": 40, "229": 62, "230": 64, "314": 68, "106": 40, "235": 69, "236": 71, "338": 80, "112": 36, "241": 75, "242": 77, "211": 41, "118": 36, "247": 81, "248": 83, "212": 43, "124": 74, "254": 93, "255": 95}}
+{"line_map": {"130": 36, "259": 69, "260": 71, "136": 92, "265": 75, "266": 77, "142": 92, "271": 81, "272": 83, "17": 2, "19": 0, "148": 40, "278": 93, "279": 95, "196": 34, "154": 40, "284": 102, "285": 104, "160": 14, "290": 111, "326": 80, "166": 14, "296": 68, "172": 74, "302": 68, "178": 74, "308": 110, "53": 2, "54": 3, "184": 52, "58": 3, "59": 4, "190": 52, "63": 4, "320": 80, "68": 15, "69": 18, "70": 20, "71": 20, "72": 21, "73": 21, "74": 22, "75": 22, "76": 25, "77": 25, "78": 26, "79": 26, "80": 27, "81": 27, "82": 28, "83": 28, "84": 31, "85": 31, "86": 31, "344": 338, "332": 44, "91": 114, "92": 117, "93": 117, "94": 117, "224": 34, "100": 61, "229": 37, "230": 39, "273": 87, "314": 110, "106": 61, "235": 41, "236": 43, "338": 44, "112": 101, "241": 45, "242": 47, "118": 101, "247": 53, "248": 55, "124": 36, "253": 62, "254": 64}, "filename": "C:/Users/jpwil_000/Documents/School/2016 Winter Classes/IS 413/Colonial_Heritage_Foundation/homepage/templates/base.htm", "source_encoding": "utf-8", "uri": "base.htm"}
 __M_END_METADATA
 """

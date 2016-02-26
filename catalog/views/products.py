@@ -179,6 +179,7 @@ PRODUCT_TYPE = (
     ('bulkproduct', 'Bulk Product'),
     ('rentalproduct', 'Rental Product'),
 )
+
 class createproduct_form(forms.Form):
     name = forms.CharField(label='Product Name:', required=True, max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Product Name'}))
     productType = forms.ChoiceField(label='Group:', required=True,choices=PRODUCT_TYPE,widget=forms.Select(attrs={'class':'form-control'}))

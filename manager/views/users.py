@@ -8,10 +8,10 @@ from django import forms
 import  Account.models as amod
 from bootstrap3_datetime.widgets import DateTimePicker
 from django.contrib.auth.models import Group, Permission
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 
 @login_required
-@user_passes_test(lambda u: u.has_perm('Can add user'))
+@permission_required('add_user')
 @view_function
 def process_request(request):
      users = amod.User.objects.all().order_by('last_name','first_name')

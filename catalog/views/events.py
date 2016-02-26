@@ -60,10 +60,6 @@ def edit(request):
     }
     return dmp_render_to_response(request, 'editevent.html', template_vars)
 
-# VENUES = {}
-# for venue in cmod.Venue.objects.all():
-#     VENUES[venue] = venue.venueName
-
 class VenueModelChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         return "%s" % obj.venueName
